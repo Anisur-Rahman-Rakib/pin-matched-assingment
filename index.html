@@ -43,9 +43,9 @@
                           <div class="button" onclick="calculator(this.innerText)">3</div>
                         </div>
                         <div class="calc-button-row">
-                            <div class="button"><</div>
+                            <div class="button" onclick="back()"><</div>
                             <div class="button" onclick="calculator(this.innerText)">0</div>
-                            <div class="button">C</div>
+                            <div class="button" onclick="clean()">C</div>
                         </div>
                         <div>
                             <button type="submit" id="submit-button" class="submit-btn">Submit</button>
@@ -63,27 +63,58 @@
     </div>
     <script>
     
+    //  function for numbers  button
+
 
     function calculator(x){
        var pickInput = document.getElementById("showNumber");
-     pickInput.value=pickInput.value + x;
-        //   form.display.value = from.display.value + x;
-      }
+
+     pickInput.value=pickInput.value + x;   
+
+    // OR   form.display.value = from.display.value + x;
+        
+     }
+
+
+    //   function for < or backspace button
+
+     function back(){
+         var expr = form.display.value;
+         form.display.value= expr.substring( 0, expr.length-1)
+     }
+
+
+    //  function for c or clean  button
+
+
+  function clean(){
+    form.display.value = '';
+  }
+
+
+    //    for randoms number generate
+    
+
+
        document.getElementById("generate-button").addEventListener("click", function(){
         var fourdigitsrandom = Math.floor(Math.random() * 9000 + 1000);
-     document.getElementById("fourdigitsrandom").value=fourdigitsrandom;
+        var fourDigit =document.getElementById("fourdigitsrandom");
+        fourDigit.value=fourdigitsrandom;
        });
+
+            //  for pin matched
+           
        document.getElementById("submit-button").addEventListener("click" , function(){
-           let fourDigitsNum =document.getElementById("fourdigitsrandom");
+           let fourDigitsNum = document.getElementById("fourdigitsrandom");
            let showCalDisplay = document.getElementById("showNumber");
 
-           if(fourDigitsNum == showCalDisplay){
+           if (fourDigitsNum.value == showCalDisplay.value){
                
-               document.getElementById("pin-matched").style.display = "block"; 
+               document.getElementById("pin-matched").style.display = 'block'; 
              
            }
-           else{
-            document.getElementById("worng-pin").style.display = "block";
+           else {
+            document.getElementById("worng-pin").style.display = 'block';
            }
        })
        
