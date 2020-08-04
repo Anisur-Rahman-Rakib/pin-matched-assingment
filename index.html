@@ -72,7 +72,7 @@
     function calculator(x){
        var pickInput = document.getElementById("showNumber");
 
-     pickInput.value=pickInput.value + x;  
+     pickInput.value = pickInput.value + x;  
 
     // OR   form.display.value = from.display.value + x;    
      }
@@ -93,7 +93,7 @@
 
      function back(){
         var expr = form.display.value;
-         form.display.value= expr.substring( 0, expr.length-1);
+         form.display.value = expr.substring( 0, expr.length-1);
         hideNotifySection ();
      }
 
@@ -115,7 +115,7 @@
     
        document.getElementById("generate-button").addEventListener("click", function(){
         var fourdigitsrandom = Math.floor(Math.random() * 9000 + 1000);
-        var fourDigit =document.getElementById("fourdigitsrandom");
+        var fourDigit = document.getElementById("fourdigitsrandom");
         fourDigit.value=fourdigitsrandom;
         cleanDisplay();
         hideNotifySection ();
